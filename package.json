@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "A minimal Electron application written with Typescript",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "npm run build && electron ./dist/main.js"
+    "start": "electron ./dist/main.js",
+    "prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "repository": "https://github.com/electron/electron-quick-start-typescript",
   "keywords": [
@@ -15,13 +17,29 @@
     "start",
     "tutorial",
     "demo",
-    "typescript"
+    "typescript",
+    "bootstrap",
+    "webpack",
+    "vue",
+    "laravel-mix"
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.3",
+    "cross-env": "^5.2.0",
     "electron": "^2.0.2",
+    "jquery": "^3.3.1",
+    "laravel-mix": "^2.1.11",
+    "lodash": "^4.17.10",
+    "popper.js": "^1.14.4",
+    "ts-loader": "^3.5",
     "tslint": "^5.10.0",
-    "typescript": "^2.8.3"
+    "typescript": "^2.8.3",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "webpack-node-externals": "^1.7.2"
   }
 }
