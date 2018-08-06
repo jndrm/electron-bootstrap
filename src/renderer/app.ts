@@ -2,16 +2,20 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
-import Vue from 'vue'
+import Vue from "vue"
+import router from "./router"
 
 // All of the Node.js APIs are available in this renderer process.
 const data = {
-    node: process.versions.node,
     chrome: process.versions.chrome,
     electron: process.versions.electron,
+    node: process.versions.node,
 }
 
+Vue.config.devtools = false
+Vue.config.productionTip = false
+
 const vue = new Vue({
-    el: '#app',
     data: () => data,
-})
+    router,
+}).$mount("#app")

@@ -6,6 +6,9 @@
         120
       ]
     },
+    "semicolon": {
+      "options": ["never"]
+    },
     "new-parens": true,
     "no-arg": true,
     "no-bitwise": true,
