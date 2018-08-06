@@ -10,7 +10,7 @@
     "start": "electron ./dist/main.js",
     "prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
-  "repository": "https://github.com/electron/electron-quick-start-typescript",
+  "repository": "https://github.com/jndrm/electron-bootstrap",
   "keywords": [
     "Electron",
     "quick",
@@ -39,7 +39,6 @@
     "typescript": "^2.8.3",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
-    "webpack-node-externals": "^1.7.2"
+    "vuex": "^3.0.1"
   }
 }
