@@ -1,4 +1,6 @@
-let mix = require('laravel-mix')
+const proc = require('child_process')
+const chokidar = require('chokidar')
+const mix = require('laravel-mix')
 
 /*
  |--------------------------------------------------------------------------
@@ -10,6 +12,21 @@ let mix = require('laravel-mix')
  | file for the application as well as bundling up all the JS files.
  |
  */
+
+if (global.Mix.isWatching()) {
+  let child
+
+  chokidar.watch("./dist/main.js").on("change", () => {
+    const electron = require("electron")
+    if (child) {
+      console.log("killing old electron instance")
+      child.kill('SIGHUP')
+    }
+    child = proc.spawn(electron, ["./dist/main.js"], {
+      stdio: 'inherit'
+    })
+  })
+}
 
 mix
   .setPublicPath('dist')
