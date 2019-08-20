@@ -13,30 +13,10 @@ const mix = require('laravel-mix')
  |
  */
 
-if (global.Mix.isWatching()) {
-  let child
-
-  chokidar.watch("./dist/main.js").on("change", () => {
-    const electron = require("electron")
-    if (child) {
-      console.log("killing old electron instance")
-      child.kill('SIGHUP')
-    }
-    child = proc.spawn(electron, ["./dist/main.js"], {
-      stdio: 'inherit'
-    })
-  })
-}
-
 mix
-  .setPublicPath('dist')
-  .ts('src/renderer/app.ts', 'renderer/app.js')
-  .sass('src/renderer/sass/app.scss', 'renderer/app.css')
+    .setPublicPath('www/dist')
+    .setResourceRoot('../')
 
-  .ts('src/main/main.ts', 'main.js')
-  .webpackConfig({
-    target: 'electron-main',
-    node: {
-      __dirname: false
-    },
-  })
+    .ts('src/renderer/app.ts', 'js/app.js')
+
+    .sass('src/sass/app.scss', 'css/app.css')

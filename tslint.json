@@ -1,25 +1,25 @@
 {
-  "extends": "tslint:recommended",
-  "rules": {
-    "max-line-length": {
-      "options": [
-        120
-      ]
+    "extends": "tslint:recommended",
+    "rules": {
+        "max-line-length": {
+            "options": [
+                120
+            ]
+        },
+        "semicolon": {
+            "options": ["never"]
+        },
+        "new-parens": true,
+        "no-arg": true,
+        "no-bitwise": true,
+        "no-conditional-assignment": true,
+        "no-consecutive-blank-lines": false
     },
-    "semicolon": {
-      "options": ["never"]
-    },
-    "new-parens": true,
-    "no-arg": true,
-    "no-bitwise": true,
-    "no-conditional-assignment": true,
-    "no-consecutive-blank-lines": false
-  },
-  "jsRules": {
-    "max-line-length": {
-      "options": [
-        120
-      ]
+    "jsRules": {
+        "max-line-length": {
+            "options": [
+                120
+            ]
+        }
     }
-  }
 }

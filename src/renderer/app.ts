@@ -7,9 +7,9 @@ import router from "./router"
 
 // All of the Node.js APIs are available in this renderer process.
 const data = {
-    chrome: process.versions.chrome,
-    electron: process.versions.electron,
-    node: process.versions.node,
+    chrome: (window as any).process.versions.chrome,
+    electron: (window as any).process.versions.electron,
+    node: (window as any).process.versions.node,
 }
 
 Vue.config.devtools = false

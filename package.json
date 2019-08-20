@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "A minimal Electron application written with Typescript",
   "scripts": {
-    "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run dev -- --watch",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "electron ./dist/main.js",
-    "prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+
+    "dev:desktop": "npm run dev -- --env.mixfile=webpack.desktop.js",
+    "prod:desktop": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js --env.mixfile=webpack.desktop.js",
+    "watch:desktop": "npm run dev:desktop -- --watch"
   },
   "repository": "https://github.com/jndrm/electron-bootstrap",
   "keywords": [
@@ -30,7 +32,7 @@
     "bootstrap": "^4.1.3",
     "chokidar": "^2.0.4",
     "cross-env": "^5.2.0",
-    "electron": "^2.0.2",
+    "electron": "6.0.2",
     "jquery": "^3.3.1",
     "laravel-mix": "^2.1.11",
     "lodash": "^4.17.10",

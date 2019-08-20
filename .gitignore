@@ -1,2 +1,4 @@
 node_modules
-dist
+www/dist
+desktop/main.js
+desktop/mix-manifest.json
